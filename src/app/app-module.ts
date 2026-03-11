@@ -3,10 +3,24 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { Header } from './header/header';
+import { WorkExperience } from './work-experience/work-experience';
+import { Skills } from './skills/skills';
+import { Education } from './education/education';
+import { Certificates } from './certificates/certificates';
+import { Languages } from './languages/languages';
+import { Interest } from './interest/interest';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    Header,
+    WorkExperience,
+    Skills,
+    Education,
+    Certificates,
+    Languages,
+    Interest
   ],
   imports: [
     BrowserModule,
