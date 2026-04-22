@@ -12,7 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './header.scss',
 })
 export class Header {
-  header: HeaderModel= new HeaderModel();
+  header: HeaderModel | null = null;
 
   constructor(public headerService: HeaderService,
   private cd: ChangeDetectorRef
@@ -26,7 +26,7 @@ export class Header {
         )
       )
     ).subscribe(data => {
-      this.header = data[0];
+      this.header = data.length ? data[0] : null;
       this.cd.detectChanges();
       console.log(data);
     });

@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 })
 export class EducationComponent {
 
- education: Education[] = [];
+ education: Education[] | null = null;
 
   constructor(
     public educationService: EducationService,
@@ -27,7 +27,7 @@ export class EducationComponent {
         }))
       )
     ).subscribe(data => {
-      this.education = data;
+      this.education = data.length ? data : null;
       console.log(this.education);
 
       this.cd.detectChanges();

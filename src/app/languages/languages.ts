@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class LanguagesComponent {
 
-   languages: Languages[] = [];
+   languages: Languages[] | null = null;
 
   constructor(
     public languagesService: LanguagesService,
@@ -26,7 +26,7 @@ export class LanguagesComponent {
         }))
       )
     ).subscribe(data => {
-      this.languages = data;
+      this.languages = data.length ? data : null;
       console.log(this.languages);
 
       this.cd.detectChanges();

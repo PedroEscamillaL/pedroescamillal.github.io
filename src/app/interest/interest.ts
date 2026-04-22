@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 })
 export class InterestComponent {
 
- interest: Interest[] = [];
+interest: Interest[] | null = null;
 
   constructor(
     public interestService: InterestService,
@@ -27,7 +27,7 @@ export class InterestComponent {
         }))
       )
     ).subscribe(data => {
-      this.interest = data;
+      this.interest = data.length ? data : null;
       console.log(this.interest);
 
       this.cd.detectChanges();

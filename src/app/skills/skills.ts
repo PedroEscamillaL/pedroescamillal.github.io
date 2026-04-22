@@ -13,7 +13,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 })
 export class SkillsComponent {
   
- skills: Skills[] = [];
+ skills: Skills[] | null = null;
 
   constructor(
     public skillsService: SkillsService,
@@ -27,7 +27,7 @@ export class SkillsComponent {
         }))
       )
     ).subscribe(data => {
-      this.skills = data;
+      this.skills = data.length ? data : null;
       console.log(this.skills);
 
       this.cd.detectChanges(); 

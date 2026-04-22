@@ -12,8 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './work-experience.scss',
 })
 export class WorkExperienceComponent {
-  workExperience: WorkExperience[] = [];
-
+  workExperience: WorkExperience[] | null = null;
   constructor(
 public workExperienceService: WorkExperienceService,
 private cd: ChangeDetectorRef
@@ -26,7 +25,7 @@ private cd: ChangeDetectorRef
         )
       )
     ).subscribe(data => {
-      this.workExperience = data;     
+      this.workExperience = data.length ? data : null;
       console.log(this.workExperience);
       this.cd.detectChanges();   
  });

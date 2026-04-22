@@ -2,27 +2,28 @@
   <h2>Experiencia Laboral</h2>
 
   <ul class="experience-list">
-    <li *ngFor="let job of workExperience" class="experience-item">
-      
+    <li *ngFor="let job of workExperience || []" class="experience-item">
+
       <div class="experience-header">
         <span class="date">
-          {{ job.startDate }} - {{ job.endDate }}
+          {{ job?.startDate }} - {{ job?.endDate }}
         </span>
+
         <span class="location">
-          {{ job.location }}
+          {{ job?.location }}
         </span>
       </div>
 
       <h3 class="position">
-        {{ job.position }}
+        {{ job?.position }}
       </h3>
 
       <p class="company">
-        {{ job.company }}
+        {{ job?.company }}
       </p>
 
       <p class="accomplishments">
-        <strong>Logros:</strong> {{ job.accomplishments }}
+        <strong>Logros:</strong> {{ job?.accomplishments }}
       </p>
 
     </li>

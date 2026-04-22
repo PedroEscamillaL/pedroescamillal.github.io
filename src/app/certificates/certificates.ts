@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   styleUrl: './certificates.scss',
 })
 export class CertificatesComponent {
- certificates: Certificates[] = [];
+ certificates: Certificates[] | null = null;
 
   constructor(
     public certificatesService: CertificatesService,
@@ -25,7 +25,7 @@ export class CertificatesComponent {
         }))
       )
     ).subscribe(data => {
-      this.certificates = data;
+      this.certificates = data.length ? data : null;
       console.log(this.certificates);
 
       this.cd.detectChanges();
