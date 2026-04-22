@@ -1,18 +1,22 @@
+<div class="header-container">
 
-<tr>
-  <td>
-    {{header.name}} <br>
-    {{header.goalLife}}
-  </td>
+  <!-- IZQUIERDA -->
+  <div class="left">
+    <h1>{{ header.name }}</h1>
+    <p class="goal">{{ header.goalLife }}</p>
+  </div>
 
-  <td>
-    <img [src]="header.photoUrl" width="200" height="200">
-  </td>
+  <!-- CENTRO -->
+  <div class="center">
+    <img [src]="header.photoUrl" alt="profile">
+  </div>
 
-  <td>
-    {{header.email}} <br>
-    {{header.phoneNumber}} <br>
-    {{header.location}} <br>
-    {{header.socialNetwork}}
-  </td>
-</tr>
+  <!-- DERECHA -->
+  <div class="right">
+    <p>{{ header.email }}</p>
+    <p>{{ header.phoneNumber }}</p>
+    <p>{{ header.location }}</p>
+    <p>{{ header.socialNetwork }}</p>
+  </div>
+
+</div>
