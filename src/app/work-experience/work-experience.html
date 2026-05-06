@@ -23,8 +23,14 @@
       </p>
 
       <p class="accomplishments">
-        <strong>Logros:</strong> {{ job?.accomplishments }}
+        <strong>Logros:</strong>
       </p>
+
+      <ul>
+        <li *ngFor="let accomplishment of job?.accomplishments">
+          {{ accomplishment }}
+        </li>
+      </ul>
 
     </li>
   </ul>
