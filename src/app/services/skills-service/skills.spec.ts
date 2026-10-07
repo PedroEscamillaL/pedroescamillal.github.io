@@ -1,16 +1,22 @@
 import { TestBed } from '@angular/core/testing';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
-import { Skills } from './skills';
+import { SkillsService } from './skills';
 
 describe('Skills', () => {
-  let service: Skills;
+  let service: SkillsService;
+
+  const collection = {};
+  const firestore = { collection: vi.fn(() => collection) };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(Skills);
+    TestBed.configureTestingModule({ providers: [{ provide: AngularFirestore, useValue: firestore }] });
+    service = TestBed.inject(SkillsService);
   });
 
-  it('should be created', () => {
+  it('should be created and use the expected Firestore collection', () => {
     expect(service).toBeTruthy();
+    expect(firestore.collection).toHaveBeenCalledWith('skills');
+    expect(service.getSkills()).toBe(collection);
   });
 });
